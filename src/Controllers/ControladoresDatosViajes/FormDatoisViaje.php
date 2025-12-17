@@ -10,8 +10,8 @@ use Views\Renderer;
 use Dao\DaoViajes\DaoViajes as dv;
 
 
-const listaDatos = "index.php?page=ControladoresDatosViajes-DatosViajes";
-const formDatos = "VistaDatosViajes/formdatos";
+const listaDatos = "index.php?page=ControladoresDatosViajes-DatosViaje";
+const formDatos = "VistaDatosViajes/FormDatos";
 
 class FormDatoisViaje extends PublicController
 {
