@@ -34,4 +34,34 @@ class DaoViajes extends Table
         ];
         return self::executeNonQuery($sqlinsert, $insertData);
     }
+    public static function EditarDatosViaje(
+        int $id_viaje,
+        String $destino,
+        string $medio_transporte,
+        int $duracion_dias,
+        float $costo_total,
+        string $fecha_inicio
+    ) {
+        $sqlupdate = "update DatosViajes set 
+                      destino = :destino,
+                      medio_transporte = :medio_transporte,
+                      duracion_dias = :duracion_dias,
+                      costo_total = :costo_total,
+                      fecha_inicio = :fecha_inicio
+                      where id_viaje = :id_viaje;";
+        $updateData = [
+            ":id_viaje" => $id_viaje,
+            ":destino" => $destino,
+            ":medio_transporte" => $medio_transporte,
+            ":duracion_dias" => $duracion_dias,
+            ":costo_total" => $costo_total,
+            ":fecha_inicio" => $fecha_inicio
+        ];
+        return self::executeNonQuery($sqlupdate, $updateData);
+    }
+    public static function EliminarDatosViaje(int $id_viaje)
+    {
+        $sqldelete = "delete from DatosViajes where id_viaje = :id_viaje;";
+        return self::executeNonQuery($sqldelete, [":id_viaje" => $id_viaje]);
+    }
 }
